@@ -1,24 +1,24 @@
-{% set major_minor = "0.40" %}
-{% set version = major_minor + ".6" %}
+{% set version = "0.40.6" %}
 
 package:
   name: intltool
   version: {{ version }}
 
 source:
-  url: http://ftp.gnome.org/pub/gnome/sources/intltool/{{ major_minor }}/intltool-{{ version }}.tar.gz
+  url: http://ftp.gnome.org/pub/gnome/sources/intltool/{{ version.split('.')[:2] | join('.') }}/intltool-{{ version }}.tar.gz
   sha256: 36cd8fe249d0cc20918b6d4583267208bf74c8d541c67a5fe63316846344f9f7
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
   detect_binary_files_with_prefix: true
 
 requirements:
-  build:
-    - perl 5.22.2.1
+  host:
+    - perl
     - perl-xml-parser
   run:
+    - perl
     - perl-xml-parser
     - gettext
 
@@ -37,3 +37,4 @@ extra:
   recipe-maintainers:
     - pkgw
     - ocefpaf
+    - dougalsutherland
