@@ -7,9 +7,16 @@ package:
 source:
   url: http://ftp.gnome.org/pub/gnome/sources/intltool/{{ version.split('.')[:2] | join('.') }}/intltool-{{ version }}.tar.gz
   sha256: 36cd8fe249d0cc20918b6d4583267208bf74c8d541c67a5fe63316846344f9f7
+  patches:
+    # Patch from https://bugs.launchpad.net/intltool/+bug/1490906
+    # Avoids warnings in perl 5.22 which became errors in 5.26
+    - intltool-perl-5.22.patch
+    # Remove the -w from shebangs; conda turns this into
+    # "/usr/bin/env perl -w" which looks for an executable named "perl -w".
+    - remove-w.patch
 
 build:
-  number: 1
+  number: 2
   skip: True  # [win]
   detect_binary_files_with_prefix: true
 
@@ -24,8 +31,7 @@ requirements:
 
 test:
   commands:
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
+    - intltool-update --help
 
 about:
   home: http://www.gtk.org/
