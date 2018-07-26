@@ -16,17 +16,17 @@ source:
     - remove-w.patch
 
 build:
-  number: 2
+  number: 3
   skip: True  # [win]
   detect_binary_files_with_prefix: true
 
 requirements:
   host:
     - perl
-    - perl-xml-parser
+    - perl
   run:
     - perl
-    - perl-xml-parser
+    - perl
     - gettext
 
 test:
