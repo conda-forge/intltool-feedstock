@@ -16,7 +16,7 @@ source:
     - remove-w.patch
 
 build:
-  number: 3
+  number: 4
   skip: True  # [win]
   detect_binary_files_with_prefix: true
 
