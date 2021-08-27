@@ -1,56 +1,55 @@
-commit 87727599bb7dbbf387921c608b41615853d81bee
-Author: Dougal J. Sutherland <dougal@gmail.com>
-Date:   Mon Jul 23 17:24:43 2018 +0100
+From b175f354706b5c9fea5b2e5a9582db6233ec789b Mon Sep 17 00:00:00 2001
+From: Ista Zahn <istazahn@gmail.com>
+Date: Fri, 27 Aug 2021 14:40:50 -0400
+Subject: [PATCH] fix hashbang
 
-    remove -w from shebangs
+---
+ intltool-extract.in | 2 +-
+ intltool-merge.in   | 2 +-
+ intltool-prepare.in | 2 +-
+ intltool-update.in  | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/intltool-extract.in b/intltool-extract.in
-index 39e7858..c8ca199 100644
+index 47a539b..af3632a 100644
 --- a/intltool-extract.in
 +++ b/intltool-extract.in
 @@ -1,4 +1,4 @@
 -#!@INTLTOOL_PERL@ -w 
-+#!@INTLTOOL_PERL@
++#!/usr/bin/env perl 
  # -*- Mode: perl; indent-tabs-mode: nil; c-basic-offset: 4  -*-
  
  #
 diff --git a/intltool-merge.in b/intltool-merge.in
-index ee4bdef..f50b4fd 100644
+index 05db7cf..da14117 100644
 --- a/intltool-merge.in
 +++ b/intltool-merge.in
 @@ -1,4 +1,4 @@
 -#!@INTLTOOL_PERL@ -w
-+#!@INTLTOOL_PERL@
++#!/usr/bin/env perl
  # -*- Mode: perl; indent-tabs-mode: nil; c-basic-offset: 4  -*-
  
  #
 diff --git a/intltool-prepare.in b/intltool-prepare.in
-index 8c31974..03ea41b 100644
+index e25451c..90d48f2 100644
 --- a/intltool-prepare.in
 +++ b/intltool-prepare.in
 @@ -1,4 +1,4 @@
 -#!@INTLTOOL_PERL@ -w
-+#!@INTLTOOL_PERL@
++#!/usr/bin/env perl
  # -*- Mode: perl; indent-tabs-mode: nil; c-basic-offset: 4  -*-
  
  #  Intltool .desktop, .directory Prepare Tool
-diff --git a/intltool-unicodify.in b/intltool-unicodify.in
-index 9821398..f2a007f 100644
---- a/intltool-unicodify.in
-+++ b/intltool-unicodify.in
-@@ -1,4 +1,4 @@
--#!@INTLTOOL_PERL@ -w
-+#!@INTLTOOL_PERL@
-         
- #
- #  The i18n Unicode Encoding Utility
 diff --git a/intltool-update.in b/intltool-update.in
-index 74699f3..aeb7095 100644
+index 6992ab4..d2b8ae9 100644
 --- a/intltool-update.in
 +++ b/intltool-update.in
 @@ -1,4 +1,4 @@
 -#!@INTLTOOL_PERL@ -w
-+#!@INTLTOOL_PERL@
++#!/usr/bin/env perl
  # -*- Mode: perl; indent-tabs-mode: nil; c-basic-offset: 4  -*-
  
  #
+-- 
+2.33.0
+
