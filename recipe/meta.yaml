@@ -10,7 +10,7 @@ source:
   patches:
     # Patch from https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/intltool/trunk/intltool-0.51.0-perl-5.26.patch
     # Avoids warnings in perl 5.22 which became errors in 5.26
-    - intltool-0.51.0-perl-5.26.patch    
+    - intltool-0.51.0-perl-5.26.patch
     # Remove the -w from shebangs; conda turns this into
     # "/usr/bin/env perl -w" which looks for an executable named "perl -w".
     - remove-w.patch
@@ -21,6 +21,8 @@ build:
   detect_binary_files_with_prefix: true
 
 requirements:
+  build:
+    - make
   host:
     - perl
     - perl-xml-parser
